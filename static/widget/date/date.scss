@@ -1,0 +1,103 @@
+@import '/static/css/common/app.scss';
+
+.dateSelect {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    .d-main {
+        font-size: 12px;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;;
+        height: 240px;
+        background: #FFFFFF;
+        z-index: 9999999;
+    }
+
+    .d-header {
+        position: relative;
+        height: 40px;
+        background: $ufq_blue;;
+        text-align: center;
+        color: #fff;
+        line-height: 40px;
+        font-size: 12px;
+        padding: 0 80px;
+        h1 {
+            font-weight: normal;
+
+        }
+        .func-btn {
+            @include wh(50px, 40px);
+            position: absolute;
+            top: 0px;
+            line-height: 40px;
+            color: #fff;
+            &.okBtn {
+                left: 10px;
+            }
+            &.cancelBtn {
+                right: 10px;
+            }
+        }
+
+    }
+
+
+    .date-mark {
+        left: 0;
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        top: 120px;
+        background: #eee;
+    }
+
+    .dateScroll {
+        background: #F8F8F8;
+        height: 200px;
+        text-align: center;
+        line-height: 40px;
+        .scroll-item {
+            float: left;
+            ul {
+                width: 100%;
+                li {
+                    color: #898989;
+                    font-size: 12px;
+                }
+            }
+        }
+        .scroll-col-1 {
+            position: absolute;
+            left: 0;
+            top: 40px;
+            bottom: 0px;
+            width: 33.33%;
+        }
+
+        .scroll-col-2 {
+            position: absolute;
+            left: 33.33%;
+            top: 40px;
+            bottom: 0px;
+            width: 33.33%;
+        }
+
+        .scroll-col-3 {
+            position: absolute;
+            left: 66.66%;
+            top: 40px;
+            bottom: 0px;
+            width: 33.33%;
+        }
+    }
+
+
+
+
+}

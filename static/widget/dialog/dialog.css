@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+/* dialog
+-----------------------------------------------*/
+.rDialog {
+    position: fixed;
+    _position: absolute;
+    display: table;
+}
+
+.rDialog-wrap {
+    position: relative;
+    background: #fff;
+    background-clip: padding-box;
+    border-radius: 8px;
+    padding-top: 20px;
+}
+
+.rDialog-header {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4c5b61;
+    text-align: center;
+}
+
+.rDialog-content {
+    padding: 12px 0 28px 0;
+    font-size: 14px;
+    overflow: hidden;
+    text-align: center;
+    word-break: break-all;
+    color: #999999;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.rDialog-content p {
+    text-align: center;
+}
+
+.rDialog-footer {
+    text-align: center;
+    border-top: 1px solid #d5d5d5;
+    display: flex;
+    justify-content: center;
+}
+
+.rDialog-footer a {
+    display: block;
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    line-height: 44px;
+    font-weight: bold;
+}
+
+.rDialog-footer a:nth-child(2) {
+    border-left: 1px solid #d5d5d5;
+}
+
+.rDialog-footer a:link, .rDialog-footer a:visited, .rDialog-footer a:hover {
+    color: #00a0e8;
+    text-decoration: none;
+}
+
+.rDialog-footer a:last-of-type {
+}
+
+.rDialog-footer a:first-of-type {
+}
+
+.rDialog-ok {
+    color: #00a0e8;
+}
+
+.rDialog-footer a.rDialog-cancel {
+    color: #4c5b61;
+}
+
+.rDialog-footer a.rDialog-cancel:hover {
+    border: solid 1px #999999;
+    color: #4c5b61;
+}
+
+.rDialog-mask {
+    position: fixed;
+    _position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    filter: alpha(opacity=60);
+    opacity: .6;
+}
+
+.rDialog-content input {
+    margin: 10px 0 0 0;
+}
+
+.item-info {
+    height: 35px;
+    line-height: 35px;
+    width: 100%;
+}
+
+.rDialog-content input {
+    margin: 0;
+}
+
+.rDialog-content input[type=text],
+.rDialog-content input[type=password] {
+    padding: 5px 0 5px 5px;
+}
+
+.item-info input[type=text],
+.item-info input[type=password],
+.item-info textarea,
+.item-info select {
+    width: 100%;
+    float: left;
+    font-size: 12px;
+}
+
+.font-fc {
+    color: #fc6710;
+}

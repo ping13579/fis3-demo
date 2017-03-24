@@ -1,0 +1,26 @@
+@import '/static/css/common/app.scss';
+.header-top{
+	height:px_to_rem(90);
+	line-height:px_to_rem(90);
+	font-size: 17px;
+	text-align: center;
+	@include single_border(bottom,$bar_line);
+	.backIcon{
+		position: absolute;
+		width: px_to_rem(90);
+		height:px_to_rem(90);
+		left:0;
+	    &:before{
+	    	position: absolute;
+		    @include arrow('left',10px,1px solid $ufq_blue);
+		    color:#333;
+		    top:px_to_rem(33);
+		    left:px_to_rem(30);
+	    }
+	}
+	.header-span{
+		position: absolute;
+		right:px_to_rem(30);
+		font-size: 15px;
+	}
+}

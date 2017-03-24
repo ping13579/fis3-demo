@@ -1,0 +1,15 @@
+@import '/static/css/common/app.scss';
+.tablist{
+	height:px_to_rem(100);
+	line-height: px_to_rem(100);
+	background: $white;
+	@include single_border(bottom,$bar_line);
+	@include flexbox(flex-start,flex-start);
+	.tabli{
+		text-align: center;
+		margin:0 10px;
+	}
+	.activeLi{
+		border-bottom: 2px solid $ufq_blue;
+	}
+}

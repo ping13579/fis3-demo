@@ -1,0 +1,226 @@
+// 定义公共变量
+$bg: #f8f8f8;
+$bar_bg: #fafafa;
+$bar_line: #d5d5d5;
+$detail_line: #e2e6e9;
+$font: #4c5b61;
+$font_99: #999999;
+$font_aa: #aaaaaa;
+$ufq_blue: #29a1ef;
+$ufq_red: #f75258;
+$ufq_blue_x: #2198e5;
+$ufq_red_x: #f2464d;
+$orange: #ffb30a;
+$green: #40ad36;
+$white: #ffffff;
+$base_font_size: 75;
+@function px_to_rem($px) {
+    @return $px / $base_font_size * 1rem;
+}
+@mixin single_border($dir, $color) {
+    @if ($dir == 'left') {
+        border-left: solid 1px $color;
+    } @else if ($dir == 'top') {
+        border-top: solid 1px $color;
+    } @else if ($dir == 'right') {
+        border-right: solid 1px $color;
+    } @else if ($dir == 'bottom') {
+        border-bottom: solid 1px $color;
+    } @else if ($dir == 'all') {
+        border: solid 1px $color;
+    }
+}
+@mixin flexbox($justify, $align) {
+    display: flex;//Flex布局默认就是首行左对齐
+    justify-content: $justify;//项目的对齐方式,水平方向上的对齐方式,flex-start 左对齐 | flex-end 右对齐 | center 居中 | space-between 两端对齐 项目间的间隔都相等 | space-around 项目两侧的间隔相等
+    align-items: $align;//交叉轴对齐方式,也就是垂直方向上的对齐方式,flex-start 交叉轴的起点对齐 | flex-end 交叉轴的终点对齐 | center 交叉轴的中点对齐 | baseline 第一行文字的基线对齐 | stretch 如果项目未设置高度或设为AUTO,将占满整个容器的高度;
+    //flex-direction: column;//主轴的方向,即项目的排列方向 row|row-reverse|column|column-reverse
+    //flex-wrap: nowrap 不换行 | wrap 换行 第一行在上方 | wrap-reverse 换行 第一行在下方;//是否在一条轴线上,是否换行
+    //flex-flow: <flex-direction> || <flex-wrap>;是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。
+    //align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+}
+
+@mixin flex($num){
+    flex: $num;//flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto
+    //align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+@mixin centerbox{
+    display:-moz-box;
+    display: -webkit-box;
+    -moz-box-align: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -webkit-box-pack:center;
+    text-align: center;
+}
+
+@mixin box-sizing($type : border-box) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    box-sizing: $type;
+}
+
+
+@mixin wh($w, $h) {
+    width: $w;
+    height: $h;
+}
+
+@mixin sub_btn($font_color, $bg_color) {
+    color: $font_color;
+    background: $bg_color;
+    font-weight: normal;
+    border: none;
+    border-radius: 2px;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    height:px_to_rem(88);
+    line-height:px_to_rem(88);
+}
+
+@mixin do_btn($font_color, $bg_color, $border) {
+    display: inline-block;
+    color: $font_color;
+    background: $bg_color;
+    border: solid 1px $border;
+    border-radius: 2px;
+    font-size: 12px;
+    text-align: center;
+    height:px_to_rem(60);
+    line-height:px_to_rem(60);
+}
+
+@mixin sel() {
+    position: relative;
+    label {
+        background: url('/static/img/null_icon.png') no-repeat 1.5rem center;
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: -3rem;
+        left: -1rem;
+        background-size: 30%;
+        @include wh(6rem, 6rem);
+    }
+    input[type = checkbox] {
+        @include wh(6rem, 9rem);
+        position: absolute;
+        z-index: 2;
+        top: -3rem;
+        left: -1rem;
+        visibility: hidden;
+    }
+    input:checked ~ label {
+        background: url('/static/img/sel_icon.png') no-repeat 1.5rem center;
+        background-size: 30%;
+    }
+    input:disabled ~ label {
+        background: url('/static/img/dis_icon.png') no-repeat 1.5rem center;
+        background-size: 30%;
+    }
+}
+
+@mixin ellipsis() {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+@mixin triangle( $name, $width, $height, $line: solid, $color: #333, $bgColor:#fff){
+    width: 0;
+    height: 0;
+    _zoom:1;
+    overflow: hidden;
+    display:inline-block;
+    $border-w: $width / 2 solid transparent;
+    $border-h: $height / 2 solid transparent;
+    $border-w6: $width / 2 solid $bgColor;
+    $border-h6: $height / 2 solid $bgColor;
+    $border-fw: $width $line $color;
+    $border-fh: $height $line $color;
+    $border-hw: $width / 2 $line $color;
+    $border-hh: $height / 2 $line $color;
+
+    @if $name == up-e {  //正，上三角
+        border-top: 0;
+        border-left: $border-w;
+        border-right: $border-w;
+        _border-left: $border-w6;
+        _border-right: $border-w6;
+        border-bottom: $border-fh;
+    } @else if $name == down-e {    //正，下三角
+        border-top: $border-fh;
+        border-left: $border-w;
+        border-right: $border-w;
+        _border-left: $border-w6;
+        _border-right: $border-w6;      border-bottom: 0;
+    } @else if $name == left-e {    //正，左三角
+        border-top: $border-h;
+        border-left: 0;
+        border-right: $border-fw;
+        border-bottom: $border-h;
+        _border-top: $border-h6;
+        _border-bottom: $border-h6;
+    } @else if $name == right-e {   //正，右三角
+        border-top: $border-h;
+        border-left: $border-fw;
+        border-right:0;
+        border-bottom: $border-h;
+        _border-top: $border-h6;
+        _border-bottom: $border-h6;
+    } @else if $name == up-r-l { //直 左 上三角
+        border-top: $border-h;
+        border-left: $border-w;
+        border-right: $border-hw;
+        border-bottom: $border-hh;
+    } @else if $name == up-r-r { //直 右 上三角
+        border-top: $border-h;
+        border-left: $border-hw;
+        border-right: $border-w;
+        border-bottom: $border-hh;
+    } @else if $name == down-r-l { //直 左 下三角
+        border-top: $border-hh;
+        border-left: $border-w;
+        border-right: $border-hw;
+        border-bottom: $border-h;
+    } @else if $name == down-r-r { //直 左 下三角
+        border-top: $border-hh;
+        border-left: $border-hw;
+        border-right: $border-w;
+        border-bottom: $border-h;
+    }
+}
+// 箭头
+// $dir 方向
+// $width 箭头大小
+// $border 箭头宽度等具体值 1px solid #fff;
+@mixin arrow($dir, $width, $border){
+    content: '';
+    display: block;
+    width: $width;
+    height: $width;
+    @if $dir == 'left'{
+        border-left: $border;
+        border-top: $border;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+    @if $dir == 'right'{
+        border-right: $border;
+        border-bottom: $border;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+    @if $dir == 'top'{
+        border-left: $border;
+        border-top: $border;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+    @if $dir == 'bottom'{
+        border-right: $border;
+        border-bottom: $border;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+}

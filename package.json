@@ -1,0 +1,30 @@
+{
+  "name": "static_job",
+  "version": "1.0.0",
+  "description": "兼职",
+  "main": "fis-conf.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "fis3 server start",
+    "build": "fis3 release -wL",
+    "code": "fis3 server start --qrcode"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@182.92.188.224:static/static_job.git"
+  },
+  "keywords": [
+    "job"
+  ],
+  "author": "ufenqi",
+  "license": "ISC",
+  "devDependencies": {
+    "fis-preprocessor-cssprefixer": "^0.0.2",
+    "fis3-hook-commonjs": "^0.1.25",
+    "fis3-parser-node-sass": "^0.1.9",
+    "fis3-postpackager-loader": "^1.5.3"
+  }
+}

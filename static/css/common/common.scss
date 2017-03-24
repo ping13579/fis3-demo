@@ -1,0 +1,170 @@
+@import './reset.scss';
+@import './app.scss';
+
+//页面公共标签样式
+body, html {
+    background-color: $bg;
+    font-family: Helvetica, 'Hiragino Sans GB';
+    font-size: 12px;
+}
+//清除浮动
+.clear:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.clear {
+    zoom: 1
+}
+
+.hide {
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.wrapper{
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+    background: $bg;
+}
+//信息提示
+.u-tip {
+    padding: px_to_rem(20);
+    .tip-txt {
+        font-size: px_to_rem(20);
+    }
+    &.success {
+
+    }
+    &.warning {
+        background-color: #fff9cf;
+        color: #ff6600;
+    }
+    &.error {
+        background-color: #fff9cf;
+        color: #ff6600;
+    }
+}
+
+//表单
+.u-form {
+    @include single_border(bottom, $detail_line);
+    background: $white;
+    .u-item {
+        position: relative;
+        @include single_border(top, $detail_line);
+        margin-left: px_to_rem(15);
+        @include flexbox(flex-start, center);
+        height: px_to_rem(88);
+        .lb {
+            margin-right: px_to_rem(30);
+            .ic {
+                @include wh(px_to_rem(28), px_to_rem(28));
+                display: block;
+            }
+        }
+        .input-box {
+
+        }
+        .ic-close {
+            @include wh(px_to_rem(28), px_to_rem(28));
+            background: url("/static/img/icon/icon_warning.png") center center no-repeat;
+            background-size: contain;
+            display: none;
+            margin-right: px_to_rem(30);
+        }
+        .u-text {
+            font-size: 15px;
+            margin-right: px_to_rem(10);
+            border: none;
+            flex: 1;
+        }
+        .u-textarea {
+            @include wh(100%, px_to_rem(88));
+            font-size: px_to_rem(30);
+            line-height: px_to_rem(44);
+            border: none;
+            flex: 1;
+            flex-grow: 1;
+        }
+        &.first {
+            border-top: 0;
+        }
+        &:first-child {
+            border-top: 0;
+        }
+        &.u-item-label {
+            .lb {
+                color: $font_99;
+                font-size: px_to_rem(30);
+            }
+            .input-box {
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    .u-item-code {
+        .send-code {
+            position: absolute;
+            right: 1rem;
+            top: 0.9rem;
+            z-index: 1;
+            @include box-sizing($type: border-box);
+            @include wh(px_to_rem(160), px_to_rem(52));
+            color: $ufq_blue;
+            background: none;
+            border: 1px solid $ufq_blue;
+            border-radius: px_to_rem(30);
+            font-size: px_to_rem(24);
+            &:disabled {
+                border: 1px solid $font_99;
+                color: $font_99;
+            }
+        }
+    }
+    .u-item-pass {
+        .ic-pass-look {
+            display: block;
+            @include wh(px_to_rem(28), px_to_rem(28));
+            background: url("/static/img/icon_pass_show.png") center center no-repeat;
+            background-size: contain;
+            cursor: pointer;
+            margin-right: px_to_rem(30);
+            &.active {
+                background: url("/static/img/icon_pass_active.png") center center no-repeat;
+                background-size: contain;
+            }
+        }
+    }
+}
+
+/* 统计代码 */
+a[title="站长统计"], a[href~="cnzz"] {
+    display: none;
+}
+
+/**上传图片加载中*/
+.imageUploadNow:before{
+    position: absolute;
+    content:'加载中...';
+    top:30%;
+    width:100%;
+    text-align: center;
+    color:$ufq_blue;
+    z-index: 999;
+    font-weight: bold;
+}

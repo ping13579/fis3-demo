@@ -1,0 +1,1 @@
+<p class='header-top'><a class='backIcon' style="{{#if display}}display:none{{/if}}" href="{{#if arrow}}{{href}}{{else}}javascript:void(0){{/if}}"> </a>{{title}}<span class='header-span'>{{oparete}}</span></p>

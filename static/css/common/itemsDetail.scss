@@ -1,0 +1,56 @@
+@import '/static/css/common/app.scss';
+.hot-items{
+  padding:0 0 0 10px;
+}
+.items-detail{
+  @include flexbox(flex-start,flex-start);
+  padding:px_to_rem(30) 0;
+  line-height: px_to_rem(50);
+  @include single_border(bottom,$detail_line);
+  .detail-icon{
+      @include wh(px_to_rem(116),px_to_rem(116));
+      margin-right: px_to_rem(35);
+      img{
+        width: 100%;
+      }
+    }
+    .detail-content{
+      @include flex(1)
+    }
+    .content-caption{
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .content-adress{
+      font-size: 13px;
+      color:$font_99;
+        img{
+          width:11px;
+          vertical-align: text-bottom;
+          margin-right:5px;
+        }
+    }
+    .content-date{
+      font-size: 12px;
+      color:$font_99;
+      line-height: px_to_rem(40);
+    }
+    .detail-right{
+      margin-right:10px;
+      text-align: right;
+    }
+    .xb-prize{
+      color:$ufq_red;
+      font-size: 17px;
+      font-weight: bold;
+    }
+    .right-b{
+      margin-top:px_to_rem(30);
+
+    }
+    .xb-db{
+      width:12px;
+      vertical-align: text-bottom;
+      margin-right:5px;
+    }
+}

@@ -1,0 +1,31 @@
+@import '/static/css/common/app.scss';
+.comment-div{
+	height:px_to_rem(50);
+	line-height: px_to_rem(50);
+	overflow: hidden;
+	margin-bottom:px_to_rem(30) ;
+	.comment-ul{
+		display: inline-block;;
+		.comment-li{
+			width: px_to_rem(50);
+			height:px_to_rem(50);
+			float: left;
+			background:url('/static/img/icon/star.jpg') no-repeat center center;
+			background-size: contain;
+			margin-left: px_to_rem(10);
+			&.starActive{
+				background:url('/static/img/icon/star_01.jpg') no-repeat center center;
+				background-size: contain;
+			}
+			&.starHalf{
+				background:url('/static/img/icon/halfStar.png') no-repeat center center;
+				background-size: contain;
+			}
+		}
+	}
+	.comment-con{
+		float: left;
+		font-size: 15px;
+		margin-right: px_to_rem(10);
+	}
+}
