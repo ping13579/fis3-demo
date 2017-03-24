@@ -4,7 +4,6 @@
 
 ```
 npm install fis3 -g
-
 ```
 安装插件：(在项目根目录执行，通过package.json文件配置)
 ```
@@ -38,21 +37,32 @@ module.exports = Dialog;
 
 ```
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="import" href="/page/common/header.html?__inline">
-        <title>优分期－让美好即刻发生</title>
-        <link rel="stylesheet" href="/static/css/bin/login.scss">
-        <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-        <script src="/static/js/device.js"></script>
-    </head>
-    <body>
-      <button id="btnDialog">显示对话框</button>
-    </body>
-    <script type="text/javascript" src="/static/js/index.js"></script>
+<html>
+<head>
+    <link rel="import" href="/page/common/header.html?__inline">
+    <title>优分期－让美好即刻发生</title>
+    <link rel="stylesheet" href='/static/css/common/header.scss'>
+    <link rel="stylesheet" href='/static/css/common/tablist.scss'>
+    <link rel="stylesheet" href='/static/css/common/star.scss'>
+    <link rel="stylesheet" href='/static/css/common/itemsDetail.scss'>
+</head>
+<body>
+<div class="header">
+</div>
+	<ul class='tablist' id='tablist'>
+		<li class='tabli activeLi'>进行中</li>
+		<li class='tabli'>待审核</li>
+		<li class='tabli'>已结束</li>
+	</ul>
+	<div class='tabDiv'></div>
+	<div class='star'></div>
+	<div class='getStar'></div>
+	<div class='itemsDetail'></div>
+    <script src="/static/js/example/example.js"></script>
+</body>
 </html>
 ```
-这时候运行刚刚完成的index.html。
+这时候运行刚刚完成的 example.html。
 
 构建说明
 ```
